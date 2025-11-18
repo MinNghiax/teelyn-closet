@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Danh mục ảnh</title>
+  <script>
+    // Kiểm tra ngay lập tức trước khi trang tải xong
+    if (localStorage.getItem('theme') === 'dark') {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    }
+  </script>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script defer src="js/gallery.js"></script>
+</head>
+<body>
+  <button id="theme-toggle" class="theme-btn">
+  <i class="fas fa-moon"></i> </button>
+  <div class="image-popup" id="imagePopup">
+    <button class="close-btn" onclick="closeImagePopup()">&times;</button>
+    <img id="popupImage" src="" alt="">
+  </div>
+    <header class="banner">
+     <img src="assets/banner1.jpg" alt="Shop Thuê Đồ & Chụp Ảnh Nghệ Thuật">
+    </header>
+    <h1>Danh mục hình ảnh</h1>
+
+  <nav class="categories">
+</nav>
+
+  <div id="gallery" class="gallery">
+    <p>Đang tải danh mục...</p>
+  </div>
+
+  <div class="center">
+    <a href="index.html" class="btn">⬅ Quay lại Trang Giới Thiệu</a>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-col">
+        <h3>Tổng quan</h3>
+        <p>Shop chuyên cho thuê trang phục và chụp ảnh nghệ thuật - nơi lưu giữ những khoảnh khắc đẹp nhất của bạn với phong cách chuyên nghiệp, hiện đại và tận tâm.</p>
+      </div>
+      <div class="footer-col">
+        <h3>Gọi điện</h3>
+        <p><i class="fa-solid fa-phone"></i><a href="tel:0386038930"> 0386 038 930</a></p>
+        <p><i class="fa-solid fa-phone"></i><a href="tel:0989445912"> 0989 445 912</a></p>
+      </div>
+      <div class="footer-col">
+        <h3>Liên hệ</h3>
+        <p><a href="https://www.facebook.com/profile.php?id=61573913400200" target="_blank"><i class="fab fa-facebook"></i> TeeLyn Closet</a></p>
+      </div>
+      <div class="footer-col">
+        <h3>Địa chỉ</h3>
+        <p><a href="https://maps.app.goo.gl/BS2fJJHqNsUSi9Wb6" target="_blank">
+          81/62 Ngô Mây, Quy Nhơn Nam, Gia Lai
+          <br>
+          (81/62 Ngô Mây, P. Nguyễn Văn Cừ, Quy Nhơn, Bình Định cũ)
+        </a></p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2025 TeeLyn Closet | Designed by MinNghiax</p>
+    </div>
+  </footer>
+</body>
+</html>

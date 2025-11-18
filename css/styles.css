@@ -1,0 +1,228 @@
+/* =======================================================
+   🌗 TEELYN CLOSET - DYNAMIC THEME (LIGHT/DARK)
+   ======================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap');
+
+/* 1. CẤU HÌNH MÀU SẮC (VARIABLES) */
+:root {
+  /* --- GIAO DIỆN SÁNG (Mặc định) --- */
+  --primary-color: #2E86AB;       /* Xanh biển đậm vừa phải */
+  --primary-soft: #89CFF0;        /* Xanh baby blue */
+  --bg-color: #F7F9FC;            /* Trắng hơi xanh nhẹ */
+  --surface-color: #ffffff;       /* Trắng tinh */
+  --text-color: #333333;          /* Đen xám dễ đọc */
+  --text-light: #666666;
+  --border-color: #E0E0E0;
+  --shadow: 0 10px 30px rgba(46, 134, 171, 0.15);
+  
+  --radius: 16px; 
+  --transition: all 0.3s ease-in-out;
+}
+
+/* --- GIAO DIỆN TỐI (Dark Mode) --- */
+[data-theme="dark"] {
+  --primary-color: #8AB4F8;       /* Xanh Google sáng nổi bật trên nền tối */
+  --primary-soft: #3c4043;        /* Xám đậm */
+  --bg-color: #2B2D31;            /* Xám than chì (Charcoal) */
+  --surface-color: #383A40;       /* Xám bề mặt */
+  --text-color: #EEEEEE;          /* Trắng đục */
+  --text-light: #B9BBBE;
+  --border-color: #4F545C;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* 2. CÀI ĐẶT CHUNG */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  overflow-x: hidden;
+  transition: background-color 0.3s, color 0.3s; /* Hiệu ứng chuyển màu mượt */
+}
+
+/* 3. NÚT CHUYỂN ĐỔI GIAO DIỆN (GÓC DƯỚI PHẢI) */
+.theme-btn {
+  position: fixed;
+  /* Đổi từ top thành bottom */
+  bottom: 30px; 
+  right: 30px;
+  
+  z-index: 10000;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  background-color: var(--primary-color);
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3); /* Tăng bóng đổ một chút cho nổi */
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.theme-btn:hover {
+  transform: scale(1.15) rotate(15deg); /* Phóng to nhẹ khi di chuột vào */
+  box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+}
+
+/* 4. HEADER & BANNER */
+.banner {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+  background: linear-gradient(to bottom, var(--surface-color), var(--bg-color));
+}
+
+.banner img {
+  max-width: 1200px;
+  width: 95%;
+  height: auto;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  object-fit: cover;
+  border: 4px solid var(--surface-color);
+}
+
+h1, h2 {
+  text-align: center;
+  font-weight: 800;
+  color: var(--text-color);
+  margin-bottom: 10px;
+}
+
+h1 { font-size: 2.5rem; margin-top: 30px; color: var(--primary-color); }
+h2 { font-size: 2rem; position: relative; display: inline-block; margin-top: 20px; }
+
+h2::after {
+  content: ''; display: block; width: 60px; height: 4px;
+  background: var(--primary-color); margin: 8px auto 0;
+  border-radius: 4px; transition: var(--transition);
+}
+.packages:hover h2::after { width: 100%; }
+
+/* 5. CARDS */
+.packages { padding: 40px 20px; text-align: center; }
+.cards { display: flex; justify-content: center; flex-wrap: wrap; gap: 30px; margin-top: 40px; }
+
+.card {
+  width: 320px; height: 420px;
+  border-radius: var(--radius);
+  background-size: cover; background-position: center;
+  position: relative; overflow: hidden; cursor: pointer;
+  box-shadow: var(--shadow); transition: var(--transition);
+  border: 1px solid var(--border-color);
+}
+
+.card .overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); /* Luôn tối để đọc chữ trắng */
+  opacity: 0.8; transition: var(--transition);
+}
+
+.card h3, .card p {
+  position: absolute; left: 20px; right: 20px;
+  color: #fff; /* Chữ trên ảnh luôn màu trắng */
+  z-index: 2; transition: var(--transition);
+  text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+.card h3 { bottom: 55px; font-size: 1.4rem; font-weight: 700; text-transform: uppercase; }
+.card p { bottom: 25px; font-size: 0.95rem; opacity: 0.8; transform: translateY(10px); }
+
+.card:hover { transform: translateY(-8px); border-color: var(--primary-color); }
+.card:hover .overlay { opacity: 1; background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.2)); }
+.card:hover h3 { bottom: 75px; color: var(--primary-color); }
+.card:hover p { opacity: 1; transform: translateY(0); }
+
+/* 6. BUTTONS & CATEGORIES */
+.center { text-align: center; margin: 50px 0; }
+.btn {
+  display: inline-block; padding: 14px 40px;
+  background-color: var(--primary-color); color: #fff;
+  font-size: 1.1rem; font-weight: 800; text-decoration: none;
+  border-radius: 30px; transition: var(--transition);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+.btn:hover { transform: scale(1.05); filter: brightness(1.1); }
+
+.categories { display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; margin: 30px 0; padding: 0 15px; }
+.categories button {
+  padding: 10px 28px; background: var(--surface-color);
+  border: 1px solid var(--border-color); border-radius: 25px;
+  color: var(--text-color); font-family: 'Nunito', sans-serif;
+  font-size: 1rem; font-weight: 700; cursor: pointer; transition: var(--transition);
+}
+.categories button:hover { border-color: var(--primary-color); color: var(--primary-color); }
+.categories button.active {
+  background: var(--primary-color); color: #fff;
+  border-color: var(--primary-color); box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+/* 7. GALLERY GRID */
+.gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 15px; padding: 20px 5%; max-width: 1300px; margin: 0 auto; }
+
+.img-card {
+  position: relative; background: var(--surface-color);
+  border-radius: 12px; overflow: hidden; aspect-ratio: 1/1;
+  cursor: pointer; transition: var(--transition);
+  border: 1px solid var(--border-color);
+}
+
+.img-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+.img-card:hover { box-shadow: var(--shadow); border-color: var(--primary-color); z-index: 10; }
+.img-card:hover img { transform: scale(1.05); }
+
+.img-card p {
+  position: absolute; bottom: 0; left: 0; width: 100%;
+  background: rgba(0,0,0,0.7); color: #fff;
+  padding: 12px 5px; text-align: center; font-size: 0.9rem;
+  font-weight: 600; opacity: 0; transform: translateY(10px);
+  transition: var(--transition);
+}
+.img-card:hover p { opacity: 1; transform: translateY(0); }
+
+/* Loader */
+.gallery > p, .gallery .loader { grid-column: 1 / -1; text-align: center; font-size: 1.1rem; color: var(--text-light); margin-top: 40px; }
+
+/* 8. POPUP & FOOTER */
+.image-popup {
+  position: fixed; inset: 0; background: rgba(0, 0, 0, 0.95);
+  display: flex; justify-content: center; align-items: center;
+  z-index: 9999; opacity: 0; visibility: hidden; transition: var(--transition);
+}
+.image-popup.active { opacity: 1; visibility: visible; }
+.image-popup img { max-width: 90%; max-height: 90%; border-radius: 4px; box-shadow: 0 0 50px rgba(0,0,0,1); }
+
+.close-btn {
+  position: absolute; top: 25px; right: 25px;
+  background: rgba(255,255,255,0.1); color: #fff; border: 1px solid #fff;
+  width: 45px; height: 45px; border-radius: 50%; font-size: 24px;
+  cursor: pointer; display: flex; align-items: center; justify-content: center; transition: 0.3s;
+}
+.close-btn:hover { background: var(--primary-color); border-color: var(--primary-color); transform: rotate(90deg); }
+
+.footer {
+  background-color: var(--surface-color);
+  border-top: 1px solid var(--border-color);
+  padding: 50px 20px 20px; margin-top: 60px;
+}
+.footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; max-width: 1200px; margin: 0 auto; }
+.footer-col h3 { font-size: 1.2rem; color: var(--primary-color); margin-bottom: 20px; }
+.footer-col p, .footer-col a { color: var(--text-color); font-size: 0.95rem; margin-bottom: 10px; text-decoration: none; }
+.footer-col a:hover { color: var(--primary-color); text-decoration: underline; }
+.footer-bottom { text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border-color); color: var(--text-light); font-size: 0.85rem; }
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .theme-btn { top: 15px; right: 15px; width: 40px; height: 40px; font-size: 1.2rem; }
+  h1 { font-size: 2rem; }
+  .gallery { grid-template-columns: repeat(2, 1fr); gap: 10px; padding: 10px; }
+}
