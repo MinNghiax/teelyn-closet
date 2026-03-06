@@ -2,9 +2,9 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <title>TeeLyn Closet - Chụp ảnh đẹp, thuê đồ xinh</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TeeLyn Closet - Cho thuê trang phục & Chụp ảnh chuyên nghiệp</title>
   <script>
-    // Kiểm tra ngay lập tức trước khi trang tải xong
     if (localStorage.getItem('theme') === 'dark') {
       document.documentElement.setAttribute('data-theme', 'dark');
     }
@@ -14,69 +14,67 @@
   <script defer src="js/theme.js"></script>
 </head>
 <body>
-    <header class="banner">
-     <img src="assets/banner1.jpg" alt="Shop Thuê Đồ & Chụp Ảnh Nghệ Thuật">
-    </header>
-    <button id="theme-toggle" class="theme-btn">
-  <i class="fas fa-moon"></i> </button>
+  <button id="theme-toggle" class="theme-btn" aria-label="Toggle dark mode">
+    <i class="fas fa-moon"></i>
+  </button>
 
-  <section class="packages">
-    <h2>Các Dịch Vụ Của TeeLyn</h2>
-    <div class="cards">
-      <div class="card" style="background-image: url('assets/studio.jpg');">
-    <div class="overlay"></div>
-    <h3>Gói Studio</h3>
-    <p>Chụp trong phòng với ánh sáng chuẩn studio.</p>
-  </div>
+  <a href="https://zalo.me/0325420151" class="zalo-btn" aria-label="Contact us on Zalo" title="Chat với chúng tôi trên Zalo" target="_blank">
+  </a>
 
-  <div class="card" style="background-image: url('assets/outdoor.jpg');">
-    <div class="overlay"></div>
-    <h3>Gói Ngoại Cảnh</h3>
-    <p>Chụp ở địa điểm tự nhiên, màu sắc chân thực.</p>
-  </div>
+  <header class="banner">
+    <img src="assets/banner1.jpg" alt="TeeLyn Closet - Shop Thuê Đồ & Chụp Ảnh Nghệ Thuật">
+  </header>
 
-  <div class="card" style="background-image: url('assets/wedding.jpg');">
-    <div class="overlay"></div>
-    <h3>Gói Cưới</h3>
-    <p>Trang phục cưới cao cấp, makeup chuyên nghiệp.</p>
-  </div>
-</div>
+  <main>
+    <section class="packages">
+      <h2>Các Dịch Vụ Của TeeLyn</h2>
+      <div class="cards">
+        <div class="card" style="background-image: url('assets/studio.jpg');">
+          <h3>Gói Studio</h3>
+          <p>Chụp trong phòng với ánh sáng chuẩn studio chuyên nghiệp.</p>
+        </div>
 
-  </section>
+        <div class="card" style="background-image: url('assets/outdoor.jpg');">
+          <h3>Gói Ngoại Cảnh</h3>
+          <p>Chụp ở địa điểm tự nhiên với màu sắc chân thực và tươi sáng.</p>
+        </div>
 
-  <div class="center">
-    <a href="gallery.html" class="btn">Xem Bộ Ảnh 📸</a>
-  </div>
+        <div class="card" style="background-image: url('assets/wedding.jpg');">
+          <h3>Gói Cưới</h3>
+          <p>Trang phục cưới cao cấp kết hợp makeup chuyên nghiệp tuyệt vời.</p>
+        </div>
+      </div>
+    </section>
 
-    <footer class="footer">
+    <div class="center">
+      <a href="gallery.html" class="btn">Xem Bộ Ảnh 📸</a>
+    </div>
+  </main>
+
+  <footer class="footer">
     <div class="footer-content">
       <div class="footer-col">
-        <h3>Tổng quan</h3>
+        <h3>Về Chúng Tôi</h3>
         <p>Shop chuyên cho thuê trang phục và chụp ảnh nghệ thuật — nơi lưu giữ những khoảnh khắc đẹp nhất của bạn với phong cách chuyên nghiệp, hiện đại và tận tâm.</p>
       </div>
       <div class="footer-col">
-        <h3>Gọi điện</h3>
-        <p><i class="fa-solid fa-phone"></i><a href="tel:0386038930"> 0386 038 930</a></p>
-        <p><i class="fa-solid fa-phone"></i><a href="tel:0989445912"> 0989 445 912</a></p>
+        <h3>Liên Hệ</h3>
+        <p><i class="fa-solid fa-phone"></i><a href="tel:0386038930">0386 038 930</a></p>
+        <p><i class="fa-solid fa-phone"></i><a href="tel:0989445912">0989 445 912</a></p>
       </div>
       <div class="footer-col">
-        <h3>Liên hệ</h3>
-        <p><a href="https://www.facebook.com/profile.php?id=61573913400200" target="_blank"><i class="fab fa-facebook"></i> TeeLyn Closet</a></p>
+        <h3>Mạng Xã Hội</h3>
+        <p><i class="fab fa-facebook"></i><a href="https://www.facebook.com/profile.php?id=61573913400200" target="_blank">TeeLyn Closet</a></p>
       </div>
       <div class="footer-col">
-        <h3>Địa chỉ</h3>
-        <p><a href="https://maps.app.goo.gl/Gi2sdyS9HYMM8cYQA" target="_blank">
-          81/62 Ngô Mây, Quy Nhơn Nam, Gia Lai
-          <br>
-          (81/62 Ngô Mây, P. Nguyễn Văn Cừ, Quy Nhơn, Bình Định cũ)
-        </a></p>
+        <h3>Địa Chỉ</h3>
+        <p><i class="fa-solid fa-map-marker-alt"></i><a href="https://maps.app.goo.gl/Gi2sdyS9HYMM8cYQA" target="_blank">81/62 Ngô Mây, Quy Nhơn Nam, Gia Lai</a></p>
       </div>
     </div>
 
     <div class="footer-bottom">
-      <p>© 2025 TeeLyn Closet | Designed by MinNghiax</p>
+      <p>&copy; 2025 TeeLyn Closet | Designed by MinNghiax</p>
     </div>
   </footer>
-
 </body>
 </html>
