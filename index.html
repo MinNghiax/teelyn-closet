@@ -3,23 +3,67 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TeeLyn Closet - Cho thuê trang phục & Chụp ảnh chuyên nghiệp</title>
+  <title>TeeLyn Closet - Cho thuê trang phục & chụp ảnh chuyên nghiệp</title>
   <script>
-    if (localStorage.getItem('theme') === 'dark') {
-      document.documentElement.setAttribute('data-theme', 'dark');
+    if (localStorage.getItem("theme") === "dark") {
+      document.documentElement.setAttribute("data-theme", "dark");
     }
   </script>
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <script defer src="js/theme.js"></script>
 </head>
+
 <body>
+  <button id="booking-open" class="booking-btn">
+    Đăng ký thuê đồ / chụp ảnh
+  </button>
+
+  <div id="booking-modal" class="booking-modal">
+    <div class="booking-box">
+      <h2>Đăng ký dịch vụ</h2>
+
+      <form id="booking-form">
+        <input name="name" placeholder="Họ và tên" required>
+
+        <input name="phone" placeholder="Số điện thoại" required>
+
+        <select name="service">
+          <option value="Thuê đồ">Thuê đồ</option>
+          <option value="Chụp ảnh">Chụp ảnh</option>
+          <option value="In hình">In hình</option>
+        </select>
+
+        <input type="datetime-local" name="datetime" required>
+
+        <textarea name="note" placeholder="Ghi chú cho shop"></textarea>
+
+        <div class="booking-actions">
+          <button type="submit" class="btn-confirm">
+            Xác nhận
+          </button>
+
+          <button type="button" id="booking-cancel" class="btn-cancel">
+            Hủy
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/booking.js"></script>
+
   <button id="theme-toggle" class="theme-btn" aria-label="Toggle dark mode">
     <i class="fas fa-moon"></i>
   </button>
 
-  <a href="https://zalo.me/0325420151" class="zalo-btn" aria-label="Contact us on Zalo" title="Chat với chúng tôi trên Zalo" target="_blank">
-  </a>
+  <a
+    href="https://zalo.me/0325420151"
+    class="zalo-btn"
+    aria-label="Contact us on Zalo"
+    title="Chat với chúng tôi trên Zalo"
+    target="_blank"
+  ></a>
 
   <header class="banner">
     <img src="assets/banner1.jpg" alt="TeeLyn Closet - Shop Thuê Đồ & Chụp Ảnh Nghệ Thuật">
@@ -55,7 +99,7 @@
     <div class="footer-content">
       <div class="footer-col">
         <h3>Về Chúng Tôi</h3>
-        <p>Shop chuyên cho thuê trang phục và chụp ảnh nghệ thuật — nơi lưu giữ những khoảnh khắc đẹp nhất của bạn với phong cách chuyên nghiệp, hiện đại và tận tâm.</p>
+        <p>Shop chuyên cho thuê trang phục và chụp ảnh nghệ thuật, nơi lưu giữ những khoảnh khắc đẹp nhất của bạn với phong cách chuyên nghiệp, hiện đại và tận tâm.</p>
       </div>
       <div class="footer-col">
         <h3>Liên Hệ</h3>
