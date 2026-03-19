@@ -1,5 +1,5 @@
 const BOOKING_API =
-  "https://script.google.com/macros/s/AKfycbxh-JGPCe5LfBWHvVCI-6TJHsgHjdlzsmQvLQpcEQ0kWEWFedmlUeLNiEv9BpBoFcAHBw/exec";
+  "https://script.google.com/macros/s/AKfycby-1ms4AlqzmZQlkL8A7Lm34DQEPnaINxiUNI2l0_ya6PNDCTNnsOzrpZkHUaOpnzalFw/exec";
 
 const openBtn = document.getElementById("booking-open");
 const modal = document.getElementById("booking-modal");
@@ -10,43 +10,46 @@ const submitBtn = form?.querySelector('button[type="submit"]');
 const successModal = document.getElementById("success-modal");
 const successClose = document.getElementById("success-close");
 
-// OPEN MODAL
 if (openBtn && modal) {
   openBtn.addEventListener("click", () => {
     modal.classList.add("active");
   });
 }
 
-// CLOSE MODAL
 if (cancelBtn) {
   cancelBtn.addEventListener("click", closeModal);
+}
+
+if (successClose) {
+  successClose.addEventListener("click", () => {
+    successModal?.classList.remove("active");
+  });
 }
 
 function closeModal() {
   modal?.classList.remove("active");
 }
 
-// CLOSE SUCCESS MODAL
-if (successClose) {
-  successClose.addEventListener("click", () => {
-    successModal.classList.remove("active");
-  });
-}
-
-// CALL API
 async function submitBooking(data) {
+  const formData = new FormData();
+
+  Object.entries(data).forEach(([key, value]) => {
+    formData.append(key, value ?? "");
+  });
+
   await fetch(BOOKING_API, {
     method: "POST",
     mode: "no-cors",
-    body: JSON.stringify(data)
+    body: formData
   });
 }
 
-// SUBMIT FORM
 form?.addEventListener("submit", async (event) => {
   event.preventDefault();
 
-  if (submitBtn?.disabled) return;
+  if (submitBtn?.disabled) {
+    return;
+  }
 
   const data = {
     name: form.name.value.trim(),
@@ -57,32 +60,26 @@ form?.addEventListener("submit", async (event) => {
     note: form.note.value.trim()
   };
 
-  const originalLabel = submitBtn?.textContent;
+  const originalLabel = submitBtn?.textContent || "Xac nhan";
 
   if (submitBtn) {
     submitBtn.disabled = true;
-    submitBtn.textContent = "Đang gửi...";
+    submitBtn.textContent = "Dang gui...";
   }
 
   try {
     await submitBooking(data);
 
-    // reset form
     form.reset();
-
-    // đóng modal form
     closeModal();
-
-    // mở modal success
-    successModal.classList.add("active");
-
+    successModal?.classList.add("active");
   } catch (error) {
     console.error("Booking submit failed:", error);
-    alert("Gửi đăng ký thất bại. Vui lòng thử lại!");
+    alert("Gui dang ky that bai. Vui long thu lai!");
   } finally {
     if (submitBtn) {
       submitBtn.disabled = false;
-      submitBtn.textContent = originalLabel || "Xác nhận";
+      submitBtn.textContent = originalLabel;
     }
   }
 });
