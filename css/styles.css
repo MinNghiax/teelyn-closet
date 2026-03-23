@@ -257,7 +257,6 @@ section {
   background-size: cover;
   background-position: center;
   border: 1px solid var(--border);
-  group: card;
 }
 
 .card::before {

@@ -1,5 +1,5 @@
 const BOOKING_API =
-  "https://script.google.com/macros/s/AKfycby-1ms4AlqzmZQlkL8A7Lm34DQEPnaINxiUNI2l0_ya6PNDCTNnsOzrpZkHUaOpnzalFw/exec";
+  "https://script.google.com/macros/s/AKfycbxevQn6N9qVZkoBJJlzCEaJsRyqOz4JyWwXk9fdmsKK0lvbtC7YEwGTURdMIWr3PAqlCg/exec";
 
 const openBtn = document.getElementById("booking-open");
 const modal = document.getElementById("booking-modal");
